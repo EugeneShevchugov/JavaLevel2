@@ -1,6 +1,6 @@
 package com.company.geekbrains.task1;
 
-public class Cat implements Taskable {
+public class Cat implements Runable, Jumpable {
     private int maxJump;
     private int maxRun;
 

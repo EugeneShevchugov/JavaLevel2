@@ -1,6 +1,6 @@
 package com.company.geekbrains.task1;
 
-public class Man implements Taskable {
+public class Man implements Runable, Jumpable {
     private int maxJump;
     private int maxRun;
 

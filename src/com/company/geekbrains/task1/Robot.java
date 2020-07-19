@@ -1,6 +1,6 @@
 package com.company.geekbrains.task1;
 
-public class Robot implements Taskable {
+public class Robot implements Runable, Jumpable {
     private int maxJump;
     private int maxRun;
 

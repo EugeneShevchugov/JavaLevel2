@@ -1,7 +1,5 @@
 package com.company.geekbrains.task1;
 
-public interface Taskable {
+public interface Runable {
     boolean run(RaceTrack raceTrack);
-
-    boolean jump(Wall wall);
 }
