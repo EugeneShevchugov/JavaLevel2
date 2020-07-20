@@ -11,7 +11,7 @@ public class Cat implements Runable, Jumpable {
 
     @Override
     public boolean jump(Wall wall) {
-        if (maxJump < wall.getHigh()) {
+        if (maxJump < wall.getSize()) {
             System.out.println("Кот не смог перепрыгнуть через стену");
             return false;
         }
@@ -23,7 +23,7 @@ public class Cat implements Runable, Jumpable {
 
     @Override
     public boolean run(RaceTrack raceTrack) {
-        if (maxRun < raceTrack.getLength()) {
+        if (maxRun < raceTrack.getSize()) {
             System.out.println("Кот не смог пробежать такое расстояние по беговой дорожке");
             return false;
         }
