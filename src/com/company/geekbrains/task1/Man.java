@@ -10,8 +10,8 @@ public class Man implements Runable, Jumpable {
     }
 
     @Override
-    public boolean jump(Wall wall) {
-        if (maxJump < wall.getSize()) {
+    public boolean jump(Obstacle obstacle) {
+        if (maxJump < obstacle.getSize()) {
             System.out.println("Человек не смог перепрыгнуть через стену");
             return false;
         }
@@ -22,8 +22,8 @@ public class Man implements Runable, Jumpable {
     }
 
     @Override
-    public boolean run(RaceTrack raceTrack) {
-        if (maxRun < raceTrack.getSize()) {
+    public boolean run(Obstacle obstacle) {
+        if (maxRun < obstacle.getSize()) {
             System.out.println("Человек не смог пробежать такое расстояние по беговой дорожке");
             return false;
         }
