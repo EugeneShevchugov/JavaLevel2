@@ -7,9 +7,7 @@ import java.awt.event.ActionListener;
 
 public class Chat extends JFrame {
     public Chat(String title) {
-        setTitle(title);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setBounds(0,0, 450, 700);
+        setDefaultSettings(title);
         JPanel chatPanel = new JPanel(new BorderLayout());
         JTextArea chatTextArea = new JTextArea();
         chatTextArea.setEditable(false);
@@ -21,6 +19,19 @@ public class Chat extends JFrame {
         JPanel controlPanel = new JPanel(new BorderLayout());
 
         JTextField inputField = new JTextField();
+        addListenerToInputField(chatTextArea, inputField);
+        controlPanel.add(inputField);
+
+        JButton submitBtn = new JButton("Submit");
+        submitBtn.addActionListener(new EnterButtonListener(inputField, chatTextArea));
+        controlPanel.add(submitBtn, BorderLayout.EAST);
+
+        add(controlPanel, BorderLayout.SOUTH);
+
+        setVisible(true);
+    }
+
+    private void addListenerToInputField(JTextArea chatTextArea, JTextField inputField) {
         inputField.addActionListener(new ActionListener() {
             private StringBuilder sb = new StringBuilder(chatTextArea.getText());
 
@@ -37,14 +48,11 @@ public class Chat extends JFrame {
                 sb.setLength(0);
             }
         });
-        controlPanel.add(inputField);
+    }
 
-        JButton submitBtn = new JButton("Submit");
-        submitBtn.addActionListener(new EnterButtonListener(inputField, chatTextArea));
-        controlPanel.add(submitBtn, BorderLayout.EAST);
-
-        add(controlPanel, BorderLayout.SOUTH);
-
-        setVisible(true);
+    private void setDefaultSettings(String title) {
+        setTitle(title);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setBounds(0, 0, 450, 700);
     }
 }
