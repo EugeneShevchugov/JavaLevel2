@@ -10,7 +10,8 @@ import java.util.Scanner;
 public class Client extends JFrame {
     private final String SERVER_ADDR = "localhost";
     private final int SERVER_PORT = 8189;
-    
+
+
     private Socket socket;
     private DataInputStream in;
     private DataOutputStream out;
@@ -30,9 +31,6 @@ public class Client extends JFrame {
                 try {
                     while (true) {
                         String strFromServer = in.readUTF();
-                        if (strFromServer.equalsIgnoreCase("/end")) {
-                            break;
-                        }
                         System.out.println("Server: " + strFromServer);
                     }
                 } catch (Exception e) {
@@ -40,13 +38,12 @@ public class Client extends JFrame {
                 }
             }
         }).start();
-        sendMessage();
-    }
-
-    private void sendMessage() throws IOException {
         while (true) {
             String msg = scanner.nextLine();
             out.writeUTF(msg);
+            if (msg.equalsIgnoreCase("/end")) {
+                break;
+            }
         }
     }
 }

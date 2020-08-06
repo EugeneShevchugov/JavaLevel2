@@ -39,6 +39,13 @@ public class Server {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                socket.close();
+                System.out.println("Сервер закрыт");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
